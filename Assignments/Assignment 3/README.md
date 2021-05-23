@@ -11,6 +11,8 @@ Use the images from MNIST along with a random number (integer) generated between
 
 To train a model to achieve the object, the data needs to be fetched/downloaded and prepped in the correct format and with the required batch size to be passed for training and validation. 
 
+---
+
 ### Data loading and processing
 We start by building a class that loads and takes the images from MNIST and a random number (between 0-9) generator to use as input. The actual labels of the handwritten digit and the sum are the required outputs, which the model would ultimately return.
 
@@ -26,12 +28,14 @@ These 4 objects, i.e. the 28x28 image, the one-hot encoded random integer, the g
 
 During training we prefer to have batches of samples rather than single sample and iterating using a simple for loop over the data is not optimal. So we used `DataLoader` method defined in PyTorch's utilities to get the samples of the required batch size and to shuffle the images every batch ([reference](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html)).
 
+---
+
 ### Build the network architecture
 Keeping the objective in mind, utlimately, given an image (of size 28x28) and an integer (in the range of 0-9), the solution needs to return the predicted digit in the image and the sum of the digit and the input integer.
 
 There are two ways in which we could do this
 
-**Approach 1** - Train the model in two stages as described below
+#### <ins>Approach 1 - Train the model in two stages as described below</ins>
 
 - _Stage 1:_ Train/build a classifier (using Convolution layers) to predict the digits given the image
 
@@ -73,3 +77,36 @@ Since the architecture itself was extreme, it doesn't require much training as s
 |![results](../../Images/markdown_images/consolidated_results.png)|
 |:---:|
 |*Results combining the two models with the actuals (A) and the predictions (P)*|
+
+<br>
+
+#### <ins>Approach 2 - Train a single model to predict the digit and compute the sum</ins>
+
+In this approach, instead of breaking the problem into two seperate models, _a single Convolution Network_ with blocks and Convolution and MaxPooling layers are used to get extract the required edges, gradients, patterns, texts and the sub portions of the object to predict the digit (as in Stage 1 of Approach 1). But instead of building a seperate model to predict the sum of the random integer with the predicted handwritten digit, _the same model is branch out and extended and passed through a set of Fully Connected layers_ (similar to the one in Stage 2 of Approach 1) and the results of the both predictions (i.e. the handwritten digit and the sum) are returned as the output of the forward pass.
+
+The losses by the two sub-networks are combined as suggested in the [post](https://stackoverflow.com/questions/53994625/how-can-i-process-multi-loss-in-pytorch/53995165). In short, the loss from one branch (i.e. predicting digit) and the loss from the other branch (i.e. to compute the sum) are combined (given equal weight, even this could be parameterized to see which works best instead of 1:1 ratio) to get the final loss on which the gradient changes are computed.
+
+|![loss_img](../../Images/markdown_images/loss_branch.png)|
+|:---:|
+|*Illustration of branching from the main network*|
+
+**Note:** The image below isn't the network used here, it just to illustrate at any stage of the network it can be forked to go along two different paths for different set of predictions
+
+The network was trained for 15 epochs, with the parameters for learning rate, batch size etc., and even the convolution network being the same as first approach (except the modifications to incorporate the branch at the end).
+
+|![stage 2_training](../../Images/markdown_images/merged_training.png)|
+|:---:|
+|*Stage 2: Training to calculate the sum of two numbers*|
+
+In Approach 1, the final results of the sum was dependent primarly on the model trained on MNIST (i.e. Stage 1) and not so much on the model for calculating the sum, since the complexity wasn't much.
+But this approach of combining both the stages into a single model, by branching it out at the end of convolution gives much better results/accuracy (99.43 was the highest as compared to 99.3 from Approach 1).
+
+|![results](../../Images/markdown_images/merged_results.png)|
+|:---:|
+|*Results combining the two models with the actuals (A) and the predictions (P)*|
+
+---
+
+_EVA by The School of AI; Thank you Rohan for the intriguing assignments. Looking forward for more :v: :metal:_
+
+---
