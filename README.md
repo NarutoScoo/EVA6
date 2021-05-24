@@ -1,7 +1,8 @@
 # EVA6
 ---
 
-In-depth Computer Vision Course by The School of AI; Instructor: Rohan Shravan
+In-depth Computer Vision Course by The School of AI; 
+Instructor: Rohan Shravan
 
 ---
 
