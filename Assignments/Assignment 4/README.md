@@ -23,7 +23,7 @@ The task is to build a Convolution Neural Network to predict the digits in MNIST
 A fully connected network with 2 inputs, 2 hidden layers and 2 outputs is simulated using a spreadsheet (Libre Calc was used).
 
 There are 3 sheets in the workbook
-- _Network Architecture and Global Definitions:_ Defines the network structure and shows the calculation for forward pass and the gradient computation required for backward pass.
+- _Network Architecture and Global Definitions:_ Defines the network structure and shows the calculation for forward pass and the gradient computation required for backward pass. The sheet also provides dropdown box to change the _Learning Rate_ (0.1, 0.2, 0.5, 0.8, 1.0 or 2.0) and the _Activation Function_ (ReLU, Sigmoid or Tanh). The formulae as well the training along with the plots change as these parameters are modified.
 
 <p align='center'>
 
