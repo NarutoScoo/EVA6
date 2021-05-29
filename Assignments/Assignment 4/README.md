@@ -3,6 +3,12 @@
 
 ## Objective
 
+<ins>**Part A**</ins>
+
+Train a Fully Connected Neural Network (on a Spreadsheet) showing the gradient computations and the losses as the learning rate varies over epochs.
+
+<ins>**Part B**</ins>
+
 The task is to build a Convolution Neural Network to predict the digits in MNIST, with the following constraints
 
 - Should achieve an accuracy of 99.4% or higher on the validation/test set
@@ -12,7 +18,74 @@ The task is to build a Convolution Neural Network to predict the digits in MNIST
 
 ---
 
-## Fetch and Explore the data 
+## Part A - Training a FC NN on a Spreadsheet
+
+A fully connected network with 2 inputs, 2 hidden layers and 2 outputs is simulated using a spreadsheet (Libre Calc was used).
+
+There are 3 sheets in the workbook
+- _Network Architecture and Global Definitions:_ Defines the network structure and shows the calculation for forward pass and the gradient computation required for backward pass.
+
+<p align='center'>
+
+|![fc_1](../../Images/markdown_images/network_fc_1.png)|![fc_2](../../Images/markdown_images/network_fc_1.png)|
+|:---:|:---:|
+|_Network Architecture - Part 1_|_Network Architecture - Part 2_|
+
+</p>    
+    
+    
+    
+<p align='center'>
+
+|![fc_3](../../Images/markdown_images/network_fc_3.png)|![fc_4](../../Images/markdown_images/network_fc_4.png)|
+|:---:|:---:|
+|_Network Architecture - Part 3_|_Network Architecture - Part 4_|
+
+</p>
+
+- _Training:_ The formulae derived in Sheet 1 is used on a sample data and run for 2000 epochs. This simulates the training process with 2000 epochs.
+
+<p align='center'>
+
+|![train_1](../../Images/markdown_images/train_fc_1.png)|![train_2](../../Images/markdown_images/train_fc_2.png)|
+|:---:|:---:|
+|_Training - Part 1_|_Training - Part 2_|
+
+</p>
+
+<p align='center'>
+
+|![train_3](../../Images/markdown_images/train_fc_3.png)|![train_4](../../Images/markdown_images/train_fc_4.png)|
+|:---:|:---:|
+|_Training - Part 3_|_Training - Part 4_|
+
+</p>
+
+- _Plots:_ This sheet contains the plots for the _Total Loss_ and the _Both the Predictions_.
+
+<p align='center'>
+
+|![lr_01](../../Images/markdown_images/lr_0.1.png)|![lr_02](../../Images/markdown_images/lr_0.2.png)|
+|:---:|:---:|
+|_Training with Learning Rate $\eta=0.1$_|_Training with Learning Rate $\eta=0.2$_|
+
+</p>
+
+<p align='center'>
+
+|![lr_08](../../Images/markdown_images/lr_0.8.png)|![lr_2](../../Images/markdown_images/lr_2.0.png)|
+|:---:|:---:|
+|_Training with Learning Rate $\eta=0.8$_|_Training with Learning Rate $\eta=2.0$_|
+
+</p>
+
+**Note:** _Please use the drop-down field in Sheet 1 to change the Learning Rate_
+
+---
+
+## Part B - Training a CNN to get 99.4% on MNIST
+
+### Fetch and Explore the data 
 
 First the data was loaded; PyTorch's custom dataset loader was used to get the image and the corresponding labels. The images where normalized with the Mean ($\mu=0.1307$) and Standard Deviation ($\sigma=0.3081$).
 
@@ -40,7 +113,7 @@ To verify the claim, 1000 images were taken at random from MNIST and the distanc
 
 ---
 
-## Build the network
+### Build the network
 
 The network can be built considering the observations described above. The final architecture start with a block of Convolution Layers with Batch Normalization applied after each. Since at each iteration over a batch different set of images can be passed; _Batch Normalization_ helps to standardize (by normalizing the images in the batch), so that the weights learned are consistant across the batch, without resulting in sporadic updates. In addition, a dropout of _0.008_ was used  along with 1x1 convolution to summarize the channels after each block.
 
@@ -78,7 +151,7 @@ The network was trainined for 20 epochs, with the validaiton accuracy going over
 
 ---
 
-## Future Scope
+### Future Scope
 
 - The model has overfitted, perhaps adding/increasing regularization parameter might help.
 - Number of parameters used is just below 20K, perhaps a different architecture where the first block has more parameters (going with 64 channels) are reducing the number of blocks to 2 instead of 3 could be tried
