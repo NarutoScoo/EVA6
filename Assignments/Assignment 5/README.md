@@ -169,7 +169,7 @@ The network is similar to the [Stage 2](#stage_2_net).
 </div>
     
 
-The model was able to consistantly get an accuracy score of over 99.4 for the last few epochs. Training further can perhaps help improve it further as the highest training accuracy is only _99.17_.
+The model was able to consistantly get an accuracy score of over 99.4 for the last few epochs. Training further can perhaps help improve it further as the highest training accuracy is only 99.17.
     
     
 <div align='center'>
