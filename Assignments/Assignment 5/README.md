@@ -176,7 +176,7 @@ The model was able to consistantly get an accuracy score of over 99.4 for the la
 <a name='stage_3_resuts'></a>
 
 
-|![stage_3_results](../../Images/markdown_images/stage_3_results.png)|
+|![stage_3_results](../../Images/markdown_images/stage_3_result.png)|
 |:---:|
 |_Accuracy and Loss on Training and Test_|
 
