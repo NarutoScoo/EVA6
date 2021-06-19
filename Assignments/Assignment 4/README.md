@@ -67,7 +67,7 @@ There are 3 sheets in the workbook
 
 |![lr_01](../../Images/markdown_images/lr_0.1.png)|![lr_02](../../Images/markdown_images/lr_0.2.png)|
 |:---:|:---:|
-|_Training with Learning Rate $\eta=0.1$_|_Training with Learning Rate $\eta=0.2$_|
+|_Training with Learning Rate <img src='https://render.githubusercontent.com/render/math?math=\small\eta=0.1'>_|_Training with Learning Rate <img src='https://render.githubusercontent.com/render/math?math=\small\eta=0.2'>_|
 
 </p>
 
@@ -75,7 +75,7 @@ There are 3 sheets in the workbook
 
 |![lr_08](../../Images/markdown_images/lr_0.8.png)|![lr_2](../../Images/markdown_images/lr_2.0.png)|
 |:---:|:---:|
-|_Training with Learning Rate $\eta=0.8$_|_Training with Learning Rate $\eta=2.0$_|
+|_Training with Learning Rate <img src='https://render.githubusercontent.com/render/math?math=\small\eta=0.8'>_|_Training with Learning Rate <img src='https://render.githubusercontent.com/render/math?math=\small\eta=2.0'>_|
 
 </p>
 
@@ -87,7 +87,7 @@ There are 3 sheets in the workbook
 
 ### Fetch and Explore the data 
 
-First the data was loaded; PyTorch's custom dataset loader was used to get the image and the corresponding labels. The images where normalized with the Mean ($\mu=0.1307$) and Standard Deviation ($\sigma=0.3081$).
+First the data was loaded; PyTorch's custom dataset loader was used to get the image and the corresponding labels. The images where normalized with the Mean (<img src='https://render.githubusercontent.com/render/math?math=\small\mu=0.1307'>) and Standard Deviation (<img src='https://render.githubusercontent.com/render/math?math=\small\sigma=0.3081'>).
 
 The images in MNIST are grayscal with the size of _28x28_. Since the size of the image is small, we need not build a network where the _Receptive Field (RF)_ of each block goes to _11x11_. We could instead use a smaller RF per block to extract the required edges and gradients and pass these to successive blocks to extract the patterns/textures, parts of digits and finally to predict the digit.
 
@@ -128,7 +128,7 @@ The network can be built considering the observations described above. The final
 
 The block was restricted to a RF of _5x5_ as it was sufficient to predict the digits and the biases where removed to reduce the number of parameters further.
 
-After defining the architecture, **Stocastic Gradient Descent (SGD)** was chosen as the optimizer to use to update the weights based on gradient descent values, with the initial **Learning Rate of  $\eta=0.05$** instead of 0.01. During previous iterations, it was noted that the model began to overfit after **Epochs 6 and 11-13**. To prevent this, **MultiStepLR** scheduler was used to reduce the learning rate at different epochs periods (_6, 13 and 17_). In addition, **ReduceLROnPlateau** was also used as a fail safe if validation loss increased or stopped descreasing (plateaued); there by chaining the schedulers (_References: [1](https://www.kaggle.com/isbhargav/guide-to-pytorch-learning-rate-scheduling) | [2](https://pytorch.org/docs/master/optim.html) | [3](https://pytorch.org/docs/master/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html#torch.optim.lr_scheduler.ReduceLROnPlateau)_).
+After defining the architecture, **Stocastic Gradient Descent (SGD)** was chosen as the optimizer to use to update the weights based on gradient descent values, with the initial **Learning Rate of <img src='https://render.githubusercontent.com/render/math?math=\small\eta=0.05'>** instead of 0.01. During previous iterations, it was noted that the model began to overfit after **Epochs 6 and 11-13**. To prevent this, **MultiStepLR** scheduler was used to reduce the learning rate at different epochs periods (_6, 13 and 17_). In addition, **ReduceLROnPlateau** was also used as a fail safe if validation loss increased or stopped descreasing (plateaued); there by chaining the schedulers (_References: [1](https://www.kaggle.com/isbhargav/guide-to-pytorch-learning-rate-scheduling) | [2](https://pytorch.org/docs/master/optim.html) | [3](https://pytorch.org/docs/master/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html#torch.optim.lr_scheduler.ReduceLROnPlateau)_).
 
 <p align='center'>
 
