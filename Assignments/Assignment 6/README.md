@@ -89,7 +89,7 @@ The training and test performance of the model is as shown and a sample of the m
 <a name='gn_exp'></a>
 ## Experiment 2: Using Group Normalization with L1 Regularization
 
-The network architecture (defined in [model.py](#model.py)) is used here, which is simlar in all the experiments. 
+The network architecture (defined in [model.py](./model.py)) is used here, which is simlar in all the experiments. 
 
 <div align='center'>
 <a name='gn_net'></a>
@@ -133,7 +133,7 @@ We see from the results that group norms predictions are consistant across epoch
 <a name='ln_exp'></a>
 ## Experiment 3: Using Layer Normalization with L2 Regularization
 
-Similar to the models using Batch Norm and Group Norm, this network architecture (defined in [model.py](#model.py)) is the same except for the use of Layer Normalization. Normalization was done across `(Channel, Height, Width)`, which adds significant number of parameters (increase from 7940 to ~65K). 
+Similar to the models using Batch Norm and Group Norm, this network architecture (defined in [model.py](./model.py)) is the same except for the use of Layer Normalization. Normalization was done across `(Channel, Height, Width)`, which adds significant number of parameters (increase from 7940 to ~65K). 
 
 <div align='center'>
 <a name='ln_net'></a>
@@ -173,7 +173,7 @@ The training and test performance of the model is as shown and a sample of the m
 <a name='in_exp'></a>
 ## Additional Experiment: Using Instance Normalization with L1 and L2 Regularization
 
-In addition to the above experiments using _Batch Normalization_, _Group Normalization_ and _Layer Normalization_, **Instance Normalization** was also tried out to see how well it stacks up against other methods.
+In addition to the above experiments using _Batch Normalization_, _Group Normalization_ and _Layer Normalization_, **Instance Normalization** was also tried out to see how well it stacks up against other methods, using the same network architecture (defined in [model.py](./model.py)).
 
 <div align='center'>
 <a name='in_net'></a>
