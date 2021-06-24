@@ -300,7 +300,6 @@ The calculation for one of the channels (_Blue Channel_) is shown and the same c
 
 <div align='center'>
     <img src='https://render.githubusercontent.com/render/math?math=\large=\frac{(-3 %2B -2 %2B 1 %2B -1) %2B (-1 %2B 2 %2B -1 %2B 2) %2B (-3 %2B 1 %2B 0 %2B 3) %2B (3 %2B -3 %2B -1 %2B -3)}{4*2*2}'>
-    
     <img src='https://render.githubusercontent.com/render/math?math=\large=\frac{(-5) %2B (2) %2B (1) %2B (-4)}{16}'>
 </div>    
     
@@ -336,7 +335,6 @@ The calculation for one of the groups (_Blue Group_) is shown and the same can b
 
 <div align='center'>
     <img src='https://render.githubusercontent.com/render/math?math=\large=\frac{(-3 %2B -2 %2B 1 %2B -1) %2B (2 %2B -2 %2B 2 %2B 1)}{2*2*2}'>
-    
     <img src='https://render.githubusercontent.com/render/math?math=\large=\frac{(-5) %2B (3)}{16}'>
 </div>    
     
@@ -373,7 +371,6 @@ The calculation for one of the layers is shown and the same can be applied for o
 
 <div align='center'>
     <img src='https://render.githubusercontent.com/render/math?math=\large=\frac{(-3 %2B -2 %2B 1 %2B -1) %2B (2 %2B -2 %2B 2 %2B 1) %2B (3 %2B -3 %2B 2 %2B 0) %2B (2 %2B 0 %2B 3 %2B -3)}{4*2*2}'>
-    
     <img src='https://render.githubusercontent.com/render/math?math=\large=\frac{(-5) %2B (3) %2B (2) %2B (2)}{16}'>
 </div>    
     
