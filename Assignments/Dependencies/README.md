@@ -43,11 +43,6 @@ list_of_files = ['models/resnet.py', 'main.py', 'utils.py', 'visualize.py']
 # Iterate through and download the required files
 for filename in list_of_files:
     !wget {base_url}/{filename} -O {dependencies}/{filename}
-    
-#!wget {base_url}/models/resnet.py -O {dependencies}/models/resnet.py
-#!wget {base_url}/main.py -O {dependencies}/main.py
-#!wget {base_url}/utils.py -O {dependencies}/utils.py
-#!wget {base_url}/visualize.py -O {dependencies}/visualize.py
 
 # Add dependencies to the system path
 # to import the files
